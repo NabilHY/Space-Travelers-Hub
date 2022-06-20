@@ -1,16 +1,38 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import planet from "../images/planet.png";
+import "./NavBar.css";
 
 const Navbar = () => {
-    return (
-        <div>
-            <nav>
-                <NavLink to='Rockets'> Rockets</NavLink>
-                <NavLink to='Missions'> Missions</NavLink>
-                <NavLink to='Profile'> Profile</NavLink>
-            </nav>
-        </div>
-    )
-}
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "none" : "underline",
+    };
+  };
 
-export default Navbar
+  return (
+    <div className="navBar-container d-flex">
+      <div className="logo-container d-flex">
+        <img src={planet} />
+        <h2>Space Travelers' Hub</h2>
+      </div>
+      <nav>
+        <NavLink style={navLinkStyles} to="/">
+          {" "}
+          Rockets
+        </NavLink>
+        <NavLink style={navLinkStyles} to="/Missions">
+          {" "}
+          Missions
+        </NavLink>
+        <NavLink style={navLinkStyles} to="/Profile">
+          {" "}
+          Profile
+        </NavLink>
+      </nav>
+    </div>
+  );
+};
+
+export default Navbar;
