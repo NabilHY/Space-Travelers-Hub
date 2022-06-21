@@ -18,8 +18,8 @@ function Missions() {
         <tbody>
           {dataArray.map((key) => (
             <tr key={key.id}>
-              <td>{key.name}</td>
-              <td>{key.description}</td>
+              <td className="names">{key.name}</td>
+              <td className="description">{key.description}</td>
               <td>
                 <button type="button">active Member</button>
               </td>
