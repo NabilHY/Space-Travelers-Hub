@@ -9,13 +9,12 @@ export const displayMission = createAsyncThunk(
   async () => {
     const response = await fetch(urlAPI);
     const missions = await response.json();
-    const missionsArray = [
-      Object.keys(missions).map((key) => ({
-        id: key,
-        ...missions[key][0],
-      })),
-    ];
-    return missionsArray;
+    const missionArray = missions.map((key) => ({
+      id: key.mission_id,
+      name: key.mission_name,
+      description: key.description,
+    }));
+    return missionArray;
   }
 );
 
@@ -24,7 +23,7 @@ const options = {
   initialState: [],
   reducers: {},
   extraReducers: {
-    [displayMission.fulfilled]: (state, action) => action.payload[0],
+    [displayMission.fulfilled]: (state, action) => action.payload,
   },
 };
 const missionSlice = createSlice(options);
