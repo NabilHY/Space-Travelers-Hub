@@ -4,6 +4,15 @@ import "./Mission.css";
 
 function Missions() {
   const dataArray = useSelector((state) => state.Missions);
+  const activeMemberStyles = (isActive) => {
+    return {
+      background: isActive ? "green" : "gray",
+    };
+  };
+  const clickHandler = () => {
+    activeMemberStyles(true);
+  };
+
   return (
     <div>
       <table>
@@ -21,7 +30,9 @@ function Missions() {
               <td className="names">{key.name}</td>
               <td className="description">{key.description}</td>
               <td>
-                <button type="button">active Member</button>
+                <button type="button" onClick={clickHandler}>
+                  active Member
+                </button>
               </td>
               <td>
                 <button type="button">Join Mission</button>
