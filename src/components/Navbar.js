@@ -26,7 +26,7 @@ const Navbar = () => {
           {" "}
           Missions
         </NavLink>
-        <NavLink style={navLinkStyles} to="/Profile">
+        <NavLink className="profile" style={navLinkStyles} to="/Profile">
           {" "}
           Profile
         </NavLink>
