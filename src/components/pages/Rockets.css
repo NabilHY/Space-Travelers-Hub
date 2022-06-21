@@ -1,0 +1,27 @@
+.container {
+    width: 97%;
+    margin: 30px;
+    font-family: arial, sans-serif;
+    display: flex;
+}
+
+.image {
+     margin-right: 25px;
+
+}
+
+.pargraph {
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.btn {
+    padding: 14px 18px;
+    border: 2px solid rgb(0, 132, 255);
+    border-radius: 7px;
+    font-size: 20px;
+    background: rgb(0, 132, 255);
+    color: #fff;
+    cursor: pointer;
+}
+
