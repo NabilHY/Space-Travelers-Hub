@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { displayMission } from "./Redux/Missions/MissionsSlice";
+import { displayRockets } from "./Redux/Rockets/RocketsSlice"
 import Navbar from "./components/Navbar";
 import Rockets from "./components/pages/Rockets";
 import Missions from "./components/pages/Missions";
@@ -11,8 +12,9 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(displayMission());
+    dispatch(displayRockets())
   }, [dispatch]);
-  
+
   return (
     <div className="App">
       <Navbar />

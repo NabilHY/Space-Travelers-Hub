@@ -1,12 +1,30 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-const url = "// https://api.spacexdata.com/v3/rockets"
 
-import React from 'react'
+export const displayRockets = createAsyncThunk(
+    "rockets/loadRockets",
 
-const RocketsSlice = () => {
-    return (
-        <div>RocketsSlice</div>
-    )
-}
+    async () => {
+        const url = "https://api.spacexdata.com/v3/rockets"
+        const response = await fetch(url);
+        const rockets = await response.json();
+        console.log(rockets)
+        const rocketsArray = rockets.map((key) => ({
+            id: key.id,
+            name: key.rocket_name,
+            description: key.description,
+            img: key.flickr_images
+        }));
+        return rocketsArray;
+    }
+);
 
-export default RocketsSlice
+const options = {
+    name: "rockets",
+    initialState: [],
+    reducers: {},
+    extraReducers: {
+        [displayRockets.fulfilled]: (state, action) => action.payload,
+    },
+};
+const RocketsSlice = createSlice(options);
+export default RocketsSlice.reducer;
