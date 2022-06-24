@@ -1,27 +1,23 @@
-import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { displayMission } from "./Redux/Missions/MissionsSlice";
-import Navbar from "./components/Navbar";
-import Rockets from "./components/pages/Rockets";
-import Missions from "./components/pages/Missions";
-import Profile from "./components/pages/Profile";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import Rockets from './components/Rockets/Rockets';
+import Missions from './components/Missions/Missions';
+import Profile from './components/Profile/Profile';
+import Error from './components/Error/Error';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(displayMission());
-  }, [dispatch]);
-  
   return (
-    <div className="App">
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Rockets />} />
-        <Route path="/Missions" element={<Missions />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/rockets" element={<Rockets />} />
+        <Route path="/missions" element={<Missions />} />
+        <Route path="/my-profile" element={<Profile />} />
+        <Route path="*" element={<Error />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
