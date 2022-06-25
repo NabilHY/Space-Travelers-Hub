@@ -47,7 +47,6 @@ command to get all necessary installations.
 
 Contributions, issues, and feature requests are welcome!
 - GitHub: [@TahenyBELGUITH](https://github.com/TahenyBELGUITH)
-- Twitter: [@BelguithTaheny](https://twitter.com/BelguithTaheny)
 - LinkedIn: [belguith taheny](https://www.linkedin.com/in/belguith-taheny-47b93a162/)
 
 Feel free to check the [issues page](../../issues/).
